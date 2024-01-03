@@ -37,3 +37,4 @@ console.log(numString2);
 
 console.log(num + num2);
 console.log(numString + numString2);
+console.log("😀");
