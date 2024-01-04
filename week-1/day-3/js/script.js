@@ -93,3 +93,9 @@ if(true) {
 console.log(message);
 
 // Redeclaring a let variable inside of a scope it will not change outside it.
+
+// Loops
+
+for(let i = 1; i<=5; i++){
+    console.log(i);
+}
