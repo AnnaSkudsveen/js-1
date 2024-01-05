@@ -24,7 +24,6 @@ const totalNumberOfBooks = books.length;
 console.log(totalNumberOfBooks);
 
 for(i = 0; i < totalNumberOfBooks; i++) {
-    //console.log(books[i])
     html += `
         <div class="book">
             <h2>${books[i].title} </h2>
