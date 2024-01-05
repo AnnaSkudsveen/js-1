@@ -25,3 +25,13 @@ const numberOfFruits = fruits.length;
 for(let i = 0; i < numberOfFruits; i++) {
     console.log(fruits[i])
 }
+
+// To find the last item in an array
+
+const lastItemInTheArray = fruits.length - 1;
+console.log(lastItemInTheArray);
+
+// Alterative
+
+console.log(fruits.length - 1);
+
