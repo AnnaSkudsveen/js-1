@@ -13,8 +13,6 @@ let news = [
     },   
 ];
 
-console.log(news);
-
 const newsContainer = document.querySelector(".news");
 
 let content = "";
@@ -30,15 +28,6 @@ for (let i = 0; i < numberOfNews; i++) {
     <p>${news[i].summary}</p>
     </div>
     `
-// Another way
-    // newsContainer.innerHTML += 
-    // `
-    // <div>
-    // <h2>${news[i].headline}</h2>
-    // <p>${news[i].summary}</p>
-    // </div>
-    // `
 }
 
 newsContainer.innerHTML = content;
-
