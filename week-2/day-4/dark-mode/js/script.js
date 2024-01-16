@@ -27,17 +27,23 @@ init();
 console.log("darkmode before:", isDarkMode);
 
 function toggleMode() {
-  isDarkMode = !isDarkMode;
-
-  window.localStorage.setItem("darkMode", isDarkMode);
-
   if (isDarkMode) {
-    body.style.backgroundColor = "#0A0A0A";
-    // isDarkMode = false;
-  } else {
-    body.style.backgroundColor = "#FFF";
-    // isDarkMode = true;
+    console;
   }
 }
+
+// function toggleMode() {
+//   isDarkMode = !isDarkMode;
+
+//   window.localStorage.setItem("darkMode", isDarkMode);
+
+//   if (isDarkMode) {
+//     body.style.backgroundColor = "#0A0A0A";
+//     // isDarkMode = false;
+//   } else {
+//     body.style.backgroundColor = "#FFF";
+//     // isDarkMode = true;
+//   }
+// }
 
 darkModeButton.addEventListener("click", toggleMode);
