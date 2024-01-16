@@ -1,17 +1,16 @@
 export function addThreeNumbers(num1, num2, num3) {
-    return num1 + num2 + num3;
+  return num1 + num2 + num3;
 }
 
-//You could console log it, but that does nothing in the dom. 
+//You could console log it, but that does nothing in the dom.
 addThreeNumbers(10, 2, 30);
 
 //The result of the function inside the let variable:
 let Sum = addThreeNumbers(10, 2, 30);
 
-
 //Do the same for multiplication:
 function multiplyThreeNumbers(num1, num2, num3) {
-    return num1 * num2 * num3;
+  return num1 * num2 * num3;
 }
 
 let resultOfSum = multiplyThreeNumbers(2, 5, 7);
@@ -29,8 +28,7 @@ console.log(colorButton);
 
 const headingButton = document.querySelector("button");
 
-const randomColor = ["red", "blue", "green", "orange", "pink", "lightgreen"]
-
+const randomColor = ["red", "blue", "green", "orange", "pink", "lightgreen"];
 
 //MY ANSWER
 // headingButton.addEventListener("click", function() {
@@ -39,11 +37,10 @@ const randomColor = ["red", "blue", "green", "orange", "pink", "lightgreen"]
 
 //HESH ANSWER
 function changeHeading() {
-    heading.innerHTML = "Happy Birthday Hesh";
+  heading.innerHTML = "Happy Birthday Hesh";
 }
 
 headingButton.onclick = changeHeading;
-
 
 //MY FIRST ANSWER
 // colorButton.addEventListener("click", function(){
@@ -53,8 +50,8 @@ headingButton.onclick = changeHeading;
 
 //MY SECOND ANSWER
 function changeColor() {
-    body.style.backgroundColor = "Green";
-    heading.style.color = "orange";
+  body.style.backgroundColor = "Green";
+  heading.style.color = "orange";
 }
 
 colorButton.onclick = changeColor;
@@ -63,14 +60,14 @@ colorButton.onclick = changeColor;
 let soundButton = document.querySelector(".sound");
 
 const pet = {
-    type: "cat",
-    name: "Kitty",
-    age: 10, 
-    isFriendly: false,
-    Sound: function() {
-        console.log("mjaumjau");
-    }
-}
+  type: "cat",
+  name: "Kitty",
+  age: 10,
+  isFriendly: false,
+  Sound: function () {
+    console.log("mjaumjau");
+  },
+};
 
 // pet.Sound();
 
