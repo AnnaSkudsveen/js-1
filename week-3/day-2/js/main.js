@@ -6,8 +6,19 @@ import products from "./data/products.js";
 const productsContainer = document.querySelector(".products-container");
 // console.log(productsContainer);
 
+const mySavedFavs = window.localStorage.getItem("heartSvgs");
+//find
+//will compare the two arrays
+//products data and the sendcond will be mySavedFavs
+//product1       product1
+// id      ===      id
+//true
+
 // 2. Fill the productsContainer with products
 for (let i = 0; i < products.length; i++) {
+  const isObjectSavedEarlier = mySavedFavs.find(function (fav) {
+    return fav.id === products[i];
+  });
   //   console.log(products[i]);
   productsContainer.innerHTML += `
   <div class="product">
@@ -16,6 +27,9 @@ for (let i = 0; i < products.length; i++) {
                 <p>NOK ${products[i].price}</p>
                 <span class="heart-container">
                     <svg class="heart"
+                        data-name="${products[i].name}"
+                        data-id="${products[i].id}"
+                        data-price="${products[i].price}"
                         xmlns="http://www.w3.org/2000/svg" 
                         width="24" 
                         height="24" 
@@ -35,16 +49,60 @@ for (let i = 0; i < products.length; i++) {
 }
 
 // 3. Check if fav button is clicked
-const favorites = document.querySelectorAll(".heart");
-// console.log(favorites);
+const heartSvgs = document.querySelectorAll(".heart");
+// console.log(heartSvgs);
+//The favs need to be declared outside the for loop, so you dont make a new favs array everytime you click it
+let favs = [];
+
 // 4 I want to make THAT heart red
-for (let x = 0; x < favorites.length; x++) {
-  //   console.log(favorites[x]);
-  favorites[x].addEventListener("click", function () {
-    // console.log("cliked heart", favorites[x]);
-    console.log("classlist:", this.classlist);
-    // this.classlist.toggle(".active-heart");
+for (let x = 0; x < heartSvgs.length; x++) {
+  //   console.log(heartSvgs[x]);
+  heartSvgs[x].addEventListener("click", function () {
+    // console.log("clicked heart:", heartSvgs[x]);
+
+    // console.log("classlist:", this.classlist);
+
+    this.classList.toggle("active-heart");
+
+    // Alternativ way, not as good:
+    // event.target.classList.toggle("active-heart")
+
+    // console.log(this.dataset.name);
+
+    favs.push({
+      name: this.dataset.name,
+      id: this.dataset.id,
+      price: this.dataset.price,
+    });
+    // Alternatively;
+    // favs.push(productsIsaved)
+    // saveFavs(favs)
+    // And a function outside ->
   });
 }
-//TODO I want to fix the heart to toggle classes when clicked
-//I want to move the clicking vent to its own function instead of anonymous function.
+
+//Function for alternative above
+// function saveFavs(favs){
+//     window.localStorage.setItem("heartSvgs", JSON.stringify(favs));
+// }
+
+function getExistingFavs() {
+  //Get the items of fav from the local storage
+  //It will do a check to check if I have already heartSvgs
+  //or not
+  //If i have heartSvgs Then i want to use them
+  //If i dont have heartSvgs, use nothing
+
+  const savedFavs = window.localStorage.getItem("heartSvgs");
+
+  if (!savedFavs) {
+    return [];
+  } else {
+    return JSON.parse(savedFavs);
+  }
+}
+
+// when refeshing get data in local storage , and "send" it to heartSvgs
+
+// TODO
+//I want to move the clicking event to its own function instead of anonymous function.

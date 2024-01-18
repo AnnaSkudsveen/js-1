@@ -11,12 +11,12 @@ export default [
   },
   {
     id: 3,
-    name: "Iphone13",
+    name: "Iphone 13",
     price: "10000",
   },
   {
     id: 4,
-    name: "Iphone13",
-    price: "10000",
+    name: "Iphone 14",
+    price: "13000",
   },
 ];
