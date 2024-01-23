@@ -1,0 +1,28 @@
+ export default { "products": [
+    {
+      "name": "Jacket",
+      "id": "1",
+      "price": 1500
+    },
+    {
+      "name": "Jacket",
+      "id": "2",
+      "price": 1600
+    },
+    {
+      "name": "Jacket",
+      "id": "3",
+      "price": 1300
+    },
+    {
+      "name": "Jacket",
+      "id": "4",
+      "price": 1400
+    },
+    {
+      "name": "Jacket",
+      "id": "5",
+      "price": 1900
+    }
+  ]
+}
