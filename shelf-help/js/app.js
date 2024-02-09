@@ -1,7 +1,9 @@
 const bookListDiv = document.getElementById("book-list");
+const filterBtn = document.querySelector(".btn-filter");
+
+// filterBtn.addEventListener("click", filterByAuthor("Stephen Gundry"));
 
 let bookData = [];
-
 function displayBook(book) {
   const bookDiv = document.createElement("div");
   const bookTitleParagraph = document.createElement("p");
@@ -16,6 +18,20 @@ function displayBook(book) {
   bookListDiv.appendChild(bookDiv);
 }
 
+function filterByAuthor(authorToFilterBy) {
+  //filter array by authors name
+  let filteredResults = [];
+
+  for (const book of bookData) {
+    if (book.author === authorToFilterBy) {
+      filteredResults.push(book);
+    }
+  }
+
+  console.log(filteredResults);
+  //update DOM to show new array
+}
+
 //fetch book data
 fetch("http://localhost:3000/books")
   .then((response) => response.json())
@@ -28,6 +44,7 @@ fetch("http://localhost:3000/books")
     // bookData.forEach(book => {
     //     displayBook(book)
     // });
+    filterByAuthor("Stephen Gundry");
   });
 
 // document.createElement();
