@@ -1,12 +1,11 @@
 const bookListDiv = document.getElementById("book-list");
 const filterBtn = document.querySelector(".btn-filter");
 const dropdownAuthorList = document.querySelector("#authorList");
-
-filterBtn.addEventListener("click", () =>
-  filterByAuthor(dropdownAuthorList.value)
-);
+const resetButton = document.getElementById("reset-button");
+const loadingDiv = document.getElementById("loader");
 
 let bookData = [];
+
 function displayBook(book) {
   const bookDiv = document.createElement("div");
   const bookTitleParagraph = document.createElement("p");
@@ -41,17 +40,6 @@ function filterByAuthor(authorToFilterBy) {
   }
 }
 
-//fetch book data
-fetch("http://localhost:3000/books")
-  .then((response) => response.json())
-  .then((bookResultData) => {
-    bookData = bookResultData;
-    for (const book of bookData) {
-      displayBook(book);
-    }
-    loadAuthorsIntoDropDown();
-  });
-
 function loadAuthorsIntoDropDown() {
   for (const book of bookData) {
     //Create an option with author name
@@ -61,3 +49,33 @@ function loadAuthorsIntoDropDown() {
     dropdownAuthorList.appendChild(authorOption);
   }
 }
+
+function resetButtonClick() {
+  resetButton.addEventListener("click", () => {
+    bookListDiv.innerHTML = "";
+    for (const book of bookData) {
+      displayBook(book);
+    }
+  });
+}
+
+//fetch book data
+fetch("http://localhost:3000/books")
+  .then((response) => response.json())
+  .then((bookResultData) => {
+    bookData = bookResultData;
+    for (const book of bookData) {
+      displayBook(book);
+    }
+    loadAuthorsIntoDropDown();
+
+    resetButtonClick();
+
+    loadingDiv.hidden = true;
+
+    // loadingDiv.style.display="none"
+  });
+
+filterBtn.addEventListener("click", () =>
+  filterByAuthor(dropdownAuthorList.value)
+);
